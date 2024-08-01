@@ -107,14 +107,12 @@ def appElement(): HtmlElement =
 
   val selectedSampler = Var[Option[Sampler]](None)
 
-
   def loadSampler(instrument: String): IO[Sampler] =
     instrument.toLowerCase match
       case "piano" => Sampler.piano
       case "guitar" => Sampler.guitar
       case "rhubarb" => Sampler.rhubarb
       case _ => IO.raiseError(new IllegalArgumentException(s"Unknown instrument: $instrument"))
-
 
   val instruments = List("Piano", "Guitar", "Rhubarb")
 
