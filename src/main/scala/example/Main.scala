@@ -136,7 +136,7 @@ def appElement(): HtmlElement =
   val fadeInSlider = Var(0.0)
   val fadeOutSlider = Var(0.0)
   val playbackRateSlider = Var(1.0)
-  val startTimeSlider = Var(0.0)
+  val startDelaySlider = Var(0.0)
   val offsetSlider = Var(0.0)
   val lengthSlider = Var(5.0)
   val loopCheckbox = Var(false)
@@ -189,9 +189,9 @@ def appElement(): HtmlElement =
       fadeIn <- fadeInSlider.signal
       fadeOut <- fadeOutSlider.signal
       playbackRate <- playbackRateSlider.signal
-      startTime <- startTimeSlider.signal
+      startDelay <- startDelaySlider.signal
       offset <- offsetSlider.signal
-      duration <- lengthSlider.signal
+      length <- lengthSlider.signal
     yield SamplePlayer.Settings(
       volume = volume,
       fadeIn = fadeIn,
@@ -199,7 +199,9 @@ def appElement(): HtmlElement =
       playbackRate = playbackRate,
       reversed = reverse,
       loop = if (loop) Some(Loop(start = 1, end = 2)) else None,
-      startTime = startTime, offset = offset, duration = Some(duration)
+      startDelay = startDelay,
+      offset = offset,
+      length = Some(length)
     )
 
   val octaves = List(Octave(1), Octave(2), Octave(3), Octave(4))
@@ -261,7 +263,7 @@ def appElement(): HtmlElement =
         createSliderElement("FADE IN", fadeInSlider, 0.0, 3.0, 0.0, 0.1),
         createSliderElement("FADE OUT", fadeOutSlider, 0.0, 3.0, 0.0, 0.1),
         createSliderElement("PLAYBACK RATE", playbackRateSlider, 0.1, 2.0, 1.0, 0.1),
-        createSliderElement("START DELAY", startTimeSlider, 0.0, 3.0, 0.0, 0.1),
+        createSliderElement("START DELAY", startDelaySlider, 0.0, 3.0, 0.0, 0.1),
         createSliderElement("OFFSET", offsetSlider, 1.0, 5.0, 0.0, 0.1),
         createSliderElement("LENGTH", lengthSlider, 0.5, 10, 5.0, 1.0),
       ),

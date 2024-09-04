@@ -17,6 +17,7 @@ body {
     }
 
 #app {
+    font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     width: 100%;
@@ -125,8 +126,8 @@ p {
 }
 
 .slider {
-    -webkit-appearance: none;
     appearance: none;
+    -webkit-appearance: none;
     height: 100%;
     width: 100%;
     display: flex;
@@ -156,8 +157,8 @@ p {
 }
 
 .slider-thumb::-webkit-slider-thumb {
-    -webkit-appearance: none;
     appearance: none;
+    -webkit-appearance: none;
     cursor: pointer;
     background-image: url('/resources/images/knobGold.png');
     background-size: cover;
@@ -170,6 +171,7 @@ p {
 
 .slider-track {
     width: 20%;
+    appearance: none;
     -webkit-appearance: none;
     height: 80%;
     background: #8B0000;
